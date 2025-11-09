@@ -124,6 +124,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-rtti
 
+# OmniJaws Service
+PRODUCT_PACKAGES += \
+    OmniJaws
+
 # One Handed Mode
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.support_one_handed_mode=true

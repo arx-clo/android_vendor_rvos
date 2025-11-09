@@ -23,7 +23,7 @@
 # RvOS Maintainer
 RVOS_MAINTAINER ?= Unknown
 RVOS_MAINTAINER_LINK ?= https://t.me/rvegroup
-OFFICIAL_MAINTAINER = $(shell cat vendor/aospa/target/product/maintainer.mk | awk '{ print $$1 }')
+# OFFICIAL_MAINTAINER = $(shell cat vendor/aospa/target/product/maintainer.mk | awk '{ print $$1 }')
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.rvos.maintainer=$(RVOS_MAINTAINER) \
@@ -40,20 +40,20 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.rvos.processor=$(RVOS_PROCESSOR)
 
 # Check Official Maintainer
-RVOS_BUILD_TYPE ?= Unofficial
+RVOS_BUILD_TYPE ?= Community
 
-ifdef RVOS_MAINTAINER
-    ifeq ($(filter $(RVOS_MAINTAINER), $(OFFICIAL_MAINTAINER)), $(RVOS_MAINTAINER))
-        $(warning "$(RVOS_MAINTAINER) is verified as official RvOS maintainer, build as official build.")
-	RVOS_BUILD_TYPE := Official
-    else
-        $(warning "Unofficial maintainer detected, building as unofficial build.")
-	RVOS_BUILD_TYPE := Unofficial
-    endif
-else
-    $(warning "No maintainer name detected, building as unofficial build.")
-    RVOS_BUILD_TYPE := Unofficial
-endif
+# ifdef RVOS_MAINTAINER
+#     ifeq ($(filter $(RVOS_MAINTAINER), $(OFFICIAL_MAINTAINER)), $(RVOS_MAINTAINER))
+#         $(warning "$(RVOS_MAINTAINER) is verified as official RvOS maintainer, build as official build.")
+# 	RVOS_BUILD_TYPE := Official
+#     else
+#         $(warning "Unofficial maintainer detected, building as unofficial build.")
+# 	RVOS_BUILD_TYPE := Unofficial
+#     endif
+# else
+#     $(warning "No maintainer name detected, building as unofficial build.")
+#     RVOS_BUILD_TYPE := Unofficial
+# endif
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
      ro.rvos.build.type=$(RVOS_BUILD_TYPE)

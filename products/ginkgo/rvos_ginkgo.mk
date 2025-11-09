@@ -22,6 +22,7 @@ RVOS_FRONT_CAM := 13
 RVOS_REAR_CAM := 48,8,2,2
 RVOS_PROCESSOR := Qualcomm®_Snapdragon™_665
 WITH_GMS := true
+RVOS_BUILD_TYPE := Community
 
 PRODUCT_NAME := rvos_ginkgo
 PRODUCT_BRAND := Xiaomi
